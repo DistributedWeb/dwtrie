@@ -1,12 +1,12 @@
 {
-  "name": "hypertrie",
-  "version": "4.2.0",
+  "name": "dwtrie",
+  "version": "1.1.0",
   "description": "Distributed single writer key/value store",
   "main": "index.js",
   "dependencies": {
     "bulk-write-stream": "^1.1.4",
     "codecs": "^2.0.0",
-    "hypercore": "^8.0.0",
+    "ddatabase": "^1.5.0",
     "inherits": "^2.0.3",
     "inspect-custom-symbol": "^1.1.0",
     "is-options": "^1.0.1",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "compare": "^2.0.0",
-    "hypercore-protocol": "^7.1.1",
+    "ddatabase-protocol": "^1.5.2",
     "protocol-buffers": "^4.0.4",
     "random-access-memory": "^3.0.0",
     "standard": "^11.0.1",
