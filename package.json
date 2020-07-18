@@ -33,12 +33,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mafintosh/hypertrie.git"
+    "url": "https://github.com/mafintosh/dwtrie.git"
   },
   "author": "Mathias Buus (@mafintosh)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mafintosh/hypertrie/issues"
+    "url": "https://github.com/mafintosh/dwtrie/issues"
   },
-  "homepage": "https://github.com/mafintosh/hypertrie#readme"
+  "homepage": "https://github.com/mafintosh/dwtrie#readme"
 }

@@ -14,7 +14,7 @@ const codecs = require('codecs')
 const bulk = require('bulk-write-stream')
 const toStream = require('nanoiterator/to-stream')
 const isOptions = require('is-options')
-const hypercore = require('hypercore')
+const ddatabase = require('ddatabase')
 const inherits = require('inherits')
 const events = require('events')
 
@@ -42,7 +42,7 @@ function HyperTrie (storage, key, opts) {
   this.alwaysUpdate = !!opts.alwaysUpdate
 
   const feedOpts = Object.assign({}, opts, { valueEncoding: 'binary' })
-  this.feed = opts.feed || hypercore(storage, key, feedOpts)
+  this.feed = opts.feed || ddatabase(storage, key, feedOpts)
   this.opened = false
   this.ready = thunky(this._ready.bind(this))
 
@@ -82,7 +82,7 @@ HyperTrie.prototype._ready = function (cb) {
     if (err) return done(err)
 
     if (self.feed.length || !self.feed.writable) return done(null)
-    self.feed.append(Header.encode({type: 'hypertrie', metadata: self.metadata}), done)
+    self.feed.append(Header.encode({type: 'dwtrie', metadata: self.metadata}), done)
 
     function done (err) {
       if (err) return cb(err)
