@@ -1,7 +1,7 @@
 const ram = require('random-access-memory')
-const hypertrie = require('../../')
+const dwtrie = require('../../')
 
 module.exports = function (key, opts) {
   opts = Object.assign({ valueEncoding: 'json' }, opts)
-  return hypertrie(ram, key, opts)
+  return dwtrie(ram, key, opts)
 }
