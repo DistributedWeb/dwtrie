@@ -6,7 +6,7 @@ const codecs = require('codecs')
 const bulk = require('bulk-write-stream')
 const toStream = require('nanoiterator/to-stream')
 const isOptions = require('is-options')
-const hypercore = require('hypercore')
+const ddatabase = require('ddatabase')
 const inherits = require('inherits')
 const alru = require('array-lru')
 
@@ -47,13 +47,13 @@ function HyperTrie (storage, key, opts) {
   this.alwaysReconnect = !!opts.alwaysReconnect
 
   const feedOpts = Object.assign({}, opts, { valueEncoding: 'binary' })
-  this.feed = opts.feed || hypercore(storage, key, feedOpts)
+  this.feed = opts.feed || ddatabase(storage, key, feedOpts)
   this.feed.maxRequests = opts.maxRequests || 256 // set max requests higher since the payload is small
   this.opened = false
   this.ready = thunky(this._ready.bind(this))
 
   this._extension = opts.extension === false ? null : ((opts.extension === true ? null : opts.extension) || new Extension(this))
-  if (this._extension && !this._extension.outgoing) this._extension.outgoing = this.feed.registerExtension('hypertrie', this._extension)
+  if (this._extension && !this._extension.outgoing) this._extension.outgoing = this.feed.registerExtension('dwtrie', this._extension)
 
   this._watchers = []
   this._checkout = (opts && opts.checkout) || 0
@@ -97,7 +97,7 @@ HyperTrie.prototype._ready = function (cb) {
     if (err) return done(err)
 
     if (self.feed.length || !self.feed.writable) return done(null)
-    self.feed.append(Header.encode({type: 'hypertrie', metadata: self.metadata}), done)
+    self.feed.append(Header.encode({type: 'dwtrie', metadata: self.metadata}), done)
 
     function done (err) {
       if (err) return cb(err)

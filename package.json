@@ -1,14 +1,14 @@
 {
-  "name": "hypertrie",
-  "version": "5.0.5",
+  "name": "dwtrie",
+  "version": "1.0.0",
   "description": "Distributed single writer key/value store",
   "main": "index.js",
   "dependencies": {
     "array-lru": "^1.1.1",
     "bulk-write-stream": "^1.1.4",
     "codecs": "^2.0.0",
-    "hypercore": "^9.4.1",
-    "hypercore-protocol": "^8.0.0",
+    "ddatabase": "git://github.com/DistributedWeb/ddatabase.git#8f67bca1828ee6e0ff2424781e7e0aba14a857ed",
+    "ddatabase-protocol": "git://github.com/DistributedWeb/ddatabase-protocol.git#bf7d74a532d86b138112b90b3e71f3f645cd0fdb",
     "inherits": "^2.0.3",
     "inspect-custom-symbol": "^1.1.0",
     "is-options": "^1.0.1",
@@ -34,12 +34,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mafintosh/hypertrie.git"
+    "url": "https://github.com/distributedweb/dwtrie.git"
   },
   "author": "Mathias Buus (@mafintosh)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mafintosh/hypertrie/issues"
+    "url": "https://github.com/distributedweb/dwtrie/issues"
   },
-  "homepage": "https://github.com/mafintosh/hypertrie#readme"
+  "homepage": "https://github.com/distributedweb/dwtrie#readme"
 }
